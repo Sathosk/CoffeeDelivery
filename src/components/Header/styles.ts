@@ -5,7 +5,6 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     height: 6.5rem;
 
     box-shadow: 0 0 8px rgba(0,0,0,0.5);
@@ -16,13 +15,11 @@ export const HeaderContainer = styled.header`
 export const HeaderNav = styled.nav`
     display: flex;
     justify-content: space-between;
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
     gap: 0.75rem;
 
     a:first-child {
-        flex: 1;
+        
+        
     }
 `;
 
@@ -30,6 +27,7 @@ export const Location = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: auto;
     width: 9rem;
     height: 2.375rem;
     gap: 0.25rem;

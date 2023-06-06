@@ -11,4 +11,9 @@ export const GlobalStyle = createGlobalStyle`
         all: unset;
         cursor: pointer;
     }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
 `;
