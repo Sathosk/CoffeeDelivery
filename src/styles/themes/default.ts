@@ -8,7 +8,8 @@ export const defaultTheme = {
     'base-hover': '#d7d5d5',
     'base-button': '#e6e5e5',
     'base-input': '#ededed',
-    'background': 'fafafa',
+    'base-card': '#f3f2f2',
+    'background': '#fafafa',
 
     'yellow-dark': '#C47f17',
     'yellow': '#dbac2c',
@@ -21,7 +22,7 @@ export const defaultTheme = {
         baloo2: {
             font: "font-family: 'Baloo 2', cursive;",
             lineHeight: '130%',
-            
+
             titleXL: {
                 fontSize: '48px',
                 fontWeight: '800'
