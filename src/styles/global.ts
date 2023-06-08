@@ -16,4 +16,11 @@ export const GlobalStyle = createGlobalStyle`
         width: 80%;
         margin: 0 auto;
     }
+
+    @media (min-width: 1440px) {
+        #root {
+            width: 1440px;
+            margin: 0 auto;
+        }
+    }
 `;

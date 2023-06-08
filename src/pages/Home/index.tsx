@@ -4,9 +4,7 @@ import { HomeContainer } from "./styles";
 export function Home() {
     return (
         <main>
-            <HomeContainer>
-                <HeroSection></HeroSection>
-            </HomeContainer>
+            <HeroSection></HeroSection>
         </main>
     );
 }
