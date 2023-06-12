@@ -73,19 +73,19 @@ export const typographyStyles = {
 
     // Tag/Button Typography
     tag: css`
-        font-weight: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 10px;
         font-weight: 700;
         line-height: 1.3;
     `,
     buttonL: css`
-        font-weight: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 14px;
         font-weight: 700;
         line-height: 1.6;
     `,
     buttonM: css`
-        font-weight: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 12px;
         font-weight: 400;
         line-height: 1.6;
