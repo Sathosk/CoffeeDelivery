@@ -2,11 +2,10 @@ import { styled } from "styled-components";
 import { typographyStyles } from "../../../../styles/themes/Typography";
 
 export const CoffeListContainer = styled.section`
-
+    padding: 0 1rem;
 `
 
 export const CoffeeListWrapper = styled.section`
-    
 
     h2 {
         ${typographyStyles.titleL}
@@ -15,10 +14,14 @@ export const CoffeeListWrapper = styled.section`
     }
 `;
 
-export const CoffeeListContent = styled.section`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+export const CoffeeListContent = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, max-content));
 
+    gap: 2.5rem 2rem;
     width: 100%;
+
+    @media (max-width: 1200px) {
+        justify-content: center;
+    }
 `;

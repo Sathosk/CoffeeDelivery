@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .container {
-        width: 80%;
+        max-width: 1120px;
         margin: 0 auto;
     }
 
@@ -21,6 +21,12 @@ export const GlobalStyle = createGlobalStyle`
         #root {
             width: 1440px;
             margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 1180px) {
+        .container {
+            max-width: 90%;
         }
     }
 `;

@@ -1,4 +1,12 @@
-export const coffeeList = [
+export interface CoffeeListType {
+    name: string;
+    description: string;
+    price: string;
+    tag: string[];
+    imgName: string;
+}
+
+export const coffeeList: CoffeeListType[] = [
     {
         name: "Expresso Tradicional",
         description: "O tradicional café feito com água quente e grãos moídos",

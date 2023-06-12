@@ -13,11 +13,8 @@ export const HeaderNav = styled.nav`
     display: flex;
     justify-content: space-between;
     gap: 0.75rem;
+    width: 100%;
 
-    a:first-child {
-        
-        
-    }
 `;
 
 export const Location = styled.a`

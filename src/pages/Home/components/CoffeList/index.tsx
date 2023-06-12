@@ -1,4 +1,5 @@
 import { CoffeeCard } from "./components/CoffeeCard";
+import { coffeeList } from "../../../../data/coffee.js";
 import {
     CoffeListContainer,
     CoffeeListContent,
@@ -11,10 +12,9 @@ export function CoffeList() {
             <CoffeeListWrapper className="container">
                 <h2>Our Coffees</h2>
                 <CoffeeListContent>
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
+                    {coffeeList.map((coffee) => {
+                        return <CoffeeCard />;
+                    })}
                 </CoffeeListContent>
             </CoffeeListWrapper>
         </CoffeListContainer>

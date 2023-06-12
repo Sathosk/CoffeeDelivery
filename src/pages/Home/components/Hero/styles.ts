@@ -5,7 +5,6 @@ import { typographyStyles } from "../../../../styles/themes/Typography";
 export const HeroContainer = styled.section`
     background-image: url(${bgImg});
     background-size: cover;
-    height: 544px;
 `;
 
 export const HeroContentWrapper = styled.section`
