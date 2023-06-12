@@ -1,5 +1,4 @@
 import { CoffeeCard } from "./components/CoffeeCard";
-import { CoffeeCardContainer } from "./components/CoffeeCard/style";
 import {
     CoffeListContainer,
     CoffeeListContent,
