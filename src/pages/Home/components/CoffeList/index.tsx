@@ -1,4 +1,4 @@
-import { CoffeeCard } from "./components/CoffeeCard";
+import { CoffeeCard } from "./CoffeeCard/index.js";
 import { coffeeList } from "../../../../data/coffee.js";
 import {
     CoffeListContainer,

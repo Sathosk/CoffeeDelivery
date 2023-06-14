@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { typographyStyles } from "../../../../../../styles/themes/Typography";
+import { typographyStyles } from "../../../../../styles/themes/Typography";
 
 export const TagContainer = styled.span`
     ${typographyStyles.tag}

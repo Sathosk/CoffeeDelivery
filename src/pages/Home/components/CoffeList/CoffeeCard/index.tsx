@@ -6,9 +6,9 @@ import {
     Price,
     TagsContainer,
 } from "./style";
-import svg from "../../../../../../assets/CoffeeList/Type=Expresso.svg";
+import svg from "../../../../../assets/CoffeeList/Type=Expresso.svg";
 import { Tag } from "../CoffeeTag";
-import { CountButton } from "../../../../../../components/CountButton";
+import { CountButton } from "../../../../../components/CountButton";
 import { ShoppingCartSimple } from "phosphor-react";
 
 export function CoffeeCard() {

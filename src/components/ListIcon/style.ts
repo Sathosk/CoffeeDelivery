@@ -1,5 +1,5 @@
 import { styled, DefaultTheme } from "styled-components";
-import { typographyStyles } from "../../../../../../styles/themes/Typography";
+import { typographyStyles } from "../../styles/themes/Typography";
 
 interface ThemeProps {
     theme: DefaultTheme;

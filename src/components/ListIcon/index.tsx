@@ -4,7 +4,7 @@ import { List } from "./style";
 interface ListIconProps {
     icon: "Coffee" | "Package" | "ShoppingCart" | "Timer";
     color: "yellow-dark" | "purple" | "yellow" | "base-text";
-    text: string;
+    text?: string;
 }
 
 export function ListIcon({ icon, color, text }: ListIconProps) {
@@ -30,7 +30,7 @@ export function ListIcon({ icon, color, text }: ListIconProps) {
             <div>
                 <IconComponent weight="fill" color="white" />
             </div>
-            <span>{text}</span>
+            {text && <span>{text}</span>}
         </List>
     );
 }

@@ -18,74 +18,8 @@ export const defaultTheme = {
     'purple': '#8047f8',
     'purple-light': '#ebe5f9',
 
-    fonts: {
-        baloo2: {
-            font: "font-family: 'Baloo 2', cursive;",
-            lineHeight: '130%',
+    checkoutContainer: {
 
-            titleXL: {
-                fontSize: '48px',
-                fontWeight: '800'
-            },
-            titleL: {
-                fontSize: '32px',
-                fontWeight: '800'
-            },
-            titleM: {
-                fontSize: '24px',
-                fontWeight: '800'
-            },
-            titleS: {
-                fontSize: '20px',
-                fontWeight: '700'
-            },
-            titleXS: {
-                fontSize: '18px',
-                fontWeight: '700'
-            },
-        },
 
-        roboto: {
-            font: "font-family: 'Roboto', sans-serif;",
-
-            textL: {
-                fontSize: '20px',
-                lineHeight: '130%',
-                fontWeightRegular: '400',
-                fontWeightBold: '700'
-            },
-            textM: {
-                fontSize: '16px',
-                lineHeight: '130%',
-                fontWeightRegular: '400',
-                fontWeightBold: '700'
-            },
-            textS: {
-                fontSize: '14px',
-                lineHeight: '130%',
-                fontWeightRegular: '400',
-            },
-            textXS: {
-                fontSize: '12px',
-                lineHeight: '130%',
-                fontWeightBold: '700'
-            },
-
-            tag: {
-                fontSize: '10px',
-                lineHeight: '130%',
-                fontWeightBold: '700'
-            },
-            buttonL: {
-                fontSize: '14px',
-                lineHeight: '160%',
-                fontWeightBold: '700'
-            },
-            buttonM: {
-                fontSize: '12px',
-                lineHeight: '160%',
-                fontWeightBold: '400'
-            },
-        }
     }
 }

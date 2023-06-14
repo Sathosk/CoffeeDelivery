@@ -43,7 +43,7 @@ export const Location = styled.a`
     }
 `;
 
-export const Cart = styled.button`
+export const Cart = styled.a`
     position: relative;
     display: flex;
     justify-content: center;

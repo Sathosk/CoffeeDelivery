@@ -8,7 +8,7 @@ import {
 } from "./styles";
 
 import coffeeImg from "../../../../assets/CoffeeNoBG.png";
-import { ListIcon } from "./components/ListIcon";
+import { ListIcon } from "../../../../components/ListIcon";
 
 export function HeroSection() {
     return (
