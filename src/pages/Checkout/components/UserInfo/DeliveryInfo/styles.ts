@@ -5,19 +5,12 @@ import { CheckoutContainerStyle } from "../../../../../styles/themes/CheckoutCon
 export const DeliveryAdressContainer = styled.section`
     ${CheckoutContainerStyle}
 
+    gap: 2rem;
+
     margin-top: 1rem;
 `;
 
-export const CheckoutDeliveryInfo = styled.div`
-    h3 {
-        ${typographyStyles.titleXS}
-        color: ${props => props.theme["base-subtitle"]};
-
-        margin-bottom: 0.125rem;
-    }
-`;
-
-export const CheckoutFormHeader = styled.header`
+export const DeliveryAdressHeader = styled.header`
     display: flex;
     justify-content: flex-start;
 
@@ -41,3 +34,37 @@ export const CheckoutFormHeader = styled.header`
         }
     }
 `;
+
+export const DeliveryAdressForm = styled.form`
+    display: grid;
+    grid-template-areas: 
+        "zip . ."
+        "address address address"
+        "number complement complement" 
+        "city state uf"
+    ;
+    grid-template-columns: 200px 276px 60px;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+`;
+
+export const DeliveryAdressInput = styled.input`
+    ${typographyStyles.textS}
+
+    position: relative;
+    padding: 0.75rem;
+
+    color: ${props => props.theme["base-text"]};
+    background-color: ${props => props.theme["base-input"]};
+    border: 1px solid ${props => props.theme["base-button"]};
+    border-radius: 4px;
+
+    &::placeholder {
+        color: ${props => props.theme["base-label"]};
+    }
+
+    &:focus {
+        outline: none;
+        border-color: ${props => props.theme["yellow-dark"]};
+    }
+`

@@ -6,10 +6,13 @@ export const UserInfoContainer = styled.section`
     justify-content: space-between;
     flex-direction: column;
 
-    width: 40rem;
-
     h3 {
         ${typographyStyles.titleXS}
         color: ${props => props.theme["base-subtitle"]};
+
+        &::placeholder {
+            ${typographyStyles.textS}
+            color: ${props => props.theme["base-label"]};
+        }
     }
 `
