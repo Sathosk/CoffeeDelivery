@@ -1,14 +1,12 @@
 import { Bank, CreditCard, Money } from "phosphor-react";
 import { PaymentButton } from "./styles";
-
-interface PaymentButtonProps {
-    icon: "CreditCard" | "Bank" | "Money";
-    paymentMethod: "creditCard" | "debitCard" | "cash";
-}
+import { PaymentButtonProps } from "..";
 
 export function PaymentMethodButton({
     icon,
-    paymentMethod,
+    text,
+    onClick,
+    isSelected,
 }: PaymentButtonProps) {
     let IconComponent;
 
@@ -26,9 +24,9 @@ export function PaymentMethodButton({
 
     return (
         <>
-            <PaymentButton>
+            <PaymentButton onClick={onClick} active={isSelected}>
                 <IconComponent size={16} />
-                <span>{paymentMethod.toUpperCase()}</span>
+                <span>{text.toUpperCase()}</span>
             </PaymentButton>
         </>
     );

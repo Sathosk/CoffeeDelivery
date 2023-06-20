@@ -1,8 +1,34 @@
+import { useState } from "react";
 import { ContainerHeader } from "../DeliveryInfo/ContainerHeader";
 import { PaymentMethodButton } from "./PaymentMethodButton";
 import { PaymentMethodContainer, PaymentTypeContainer } from "./styles";
 
+const paymentMethods = [
+    { icon: "CreditCard", paymentType: "creditCard", text: "Credit Card" },
+    { icon: "Bank", paymentType: "debitCard", text: "Debit Card" },
+    { icon: "Money", paymentType: "cash", text: "Cash" },
+] as const;
+
+type PaymentMethod = (typeof paymentMethods)[number]["paymentType"];
+type PaymentIcon = (typeof paymentMethods)[number]["icon"];
+
+export interface PaymentButtonProps {
+    icon: PaymentIcon;
+    paymentType?: PaymentMethod;
+    text: string;
+    onClick: () => void;
+    isSelected: boolean;
+}
+
 export function PaymentType() {
+    const [selectedPayment, setSelectedPayment] = useState("");
+
+    console.log(selectedPayment);
+
+    function handlePaymentMethodClick(paymentMethod: PaymentMethod) {
+        setSelectedPayment(paymentMethod);
+    }
+
     return (
         <PaymentTypeContainer>
             <ContainerHeader
@@ -13,12 +39,17 @@ export function PaymentType() {
             />
 
             <PaymentMethodContainer>
-                <PaymentMethodButton
-                    icon="CreditCard"
-                    paymentMethod="creditCard"
-                />
-                <PaymentMethodButton icon="Bank" paymentMethod="debitCard" />
-                <PaymentMethodButton icon="Money" paymentMethod="cash" />
+                {paymentMethods.map((payment) => (
+                    <PaymentMethodButton
+                        icon={payment.icon}
+                        text={payment.text}
+                        key={payment.paymentType}
+                        onClick={() =>
+                            handlePaymentMethodClick(payment.paymentType)
+                        }
+                        isSelected={selectedPayment === payment.paymentType}
+                    />
+                ))}
             </PaymentMethodContainer>
         </PaymentTypeContainer>
     );
