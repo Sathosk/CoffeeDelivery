@@ -1,3 +1,10 @@
+import { OrderSummaryContainer, OrderSummarySection } from "./styles";
+
 export function OrderSummary() {
-    return <p>order summary</p>;
+    return (
+        <OrderSummarySection>
+            <h3>Selected Coffees</h3>
+            <OrderSummaryContainer></OrderSummaryContainer>
+        </OrderSummarySection>
+    );
 }

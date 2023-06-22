@@ -28,15 +28,11 @@ export const PaymentButton = styled.button<PaymentButtonProps>`
     }
 
     &:hover {
-        background-color: ${props => props.theme["base-hover"]};
+        background-color: ${props => (!props.active && props.theme["base-hover"])};
     }
 
     ${props => props.active && `
         border: 1px solid ${props.theme.purple};
         background-color: ${props.theme["purple-light"]};
-
-        &:hover {
-            background-color: none;
-        }
     `}
 `
