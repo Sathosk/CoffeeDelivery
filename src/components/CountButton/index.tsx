@@ -5,11 +5,11 @@ export function CountButton() {
     return (
         <CountContainer>
             <AddRemoveButton>
-                <Minus weight="bold" />
+                <Minus weight="bold" size={14} />
             </AddRemoveButton>
             <span>1</span>
             <AddRemoveButton>
-                <Plus weight="bold" />
+                <Plus weight="bold" size={14} />
             </AddRemoveButton>
         </CountContainer>
     );

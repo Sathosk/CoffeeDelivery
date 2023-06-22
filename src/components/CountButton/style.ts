@@ -5,10 +5,9 @@ export const CountContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.666rem;
 
-    width: 4.5rem;
-    height: 2.375rem;
-    padding: 0 0.5rem;
+    padding: 0.343rem 0.5rem;
 
     border-radius: 6px;
 
@@ -21,7 +20,7 @@ export const CountContainer = styled.div`
 `;
 
 export const AddRemoveButton = styled.button`
-    height: 16px;
+    height: 14px;
     color: ${props => props.theme.purple};
     
     transition: color 0.2s ease;
