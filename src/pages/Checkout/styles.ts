@@ -8,4 +8,5 @@ export const CheckoutContainer = styled.section`
 
     width: 100%;
     margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem;
 `;
