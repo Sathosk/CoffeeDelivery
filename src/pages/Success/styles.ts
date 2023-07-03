@@ -32,5 +32,5 @@ export const OrderInfo = styled.section`
 `
 
 export const Illustration = styled.section`
-
+    display: flex;
 `;
