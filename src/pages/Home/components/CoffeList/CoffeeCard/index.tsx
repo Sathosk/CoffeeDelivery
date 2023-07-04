@@ -6,11 +6,12 @@ import {
     Price,
     TagsContainer,
 } from "./style";
-import svg from "../../../../../assets/CoffeeList/Type=Expresso.svg";
+// import svg from "../../../../../assets/CoffeeList/Type=Expresso.svg";
 import { Tag } from "../CoffeeTag";
 import { CountButton } from "../../../../../components/CountButton";
 import { ShoppingCartSimple } from "phosphor-react";
 import { CoffeeListType } from "../../../../../data/coffee";
+import { useState } from "react";
 
 export function CoffeeCard({
     name,
@@ -19,8 +20,14 @@ export function CoffeeCard({
     tags,
     imgName,
 }: CoffeeListType) {
+    const [coffeeQuantity, setCoffeeQuantity] = useState(0);
     const imgSrc =
         import.meta.env.BASE_URL + `src/assets/CoffeeList/Type=${imgName}.svg`;
+
+    function handleChangeQuantity(number: number) {
+        setCoffeeQuantity(number);
+    }
+
     return (
         <CoffeeCardContainer>
             <CoffeeCardContent>
@@ -39,7 +46,10 @@ export function CoffeeCard({
                         <span>R$</span>
                         {price}
                     </Price>
-                    <CountButton />
+                    <CountButton
+                        quantity={coffeeQuantity}
+                        changeQuantity={handleChangeQuantity}
+                    />
                     <AddCartButton>
                         <ShoppingCartSimple weight="fill" size={21} />
                     </AddCartButton>

@@ -73,6 +73,7 @@ export const CartCount = styled.div`
 
     border-radius: 50%;
     ${typographyStyles.textXS}
+    line-height: 1;
 
     color: ${props => props.theme.white};
     background-color: ${props => props.theme["yellow-dark"]};

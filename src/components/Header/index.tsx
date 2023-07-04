@@ -20,7 +20,9 @@ export function Header() {
                 </Location>
                 <Cart href="/checkout">
                     <ShoppingCart weight="fill" size={20}></ShoppingCart>
-                    <CartCount>3</CartCount>
+                    <CartCount>
+                        <span>3</span>
+                    </CartCount>
                 </Cart>
             </HeaderNav>
         </HeaderContainer>
