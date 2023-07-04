@@ -1,5 +1,9 @@
 import { TagContainer } from "./style";
 
-export function Tag() {
-    return <TagContainer>TRADICIONAL</TagContainer>;
+interface TagProps {
+    tag: string;
+}
+
+export function Tag({ tag }: TagProps) {
+    return <TagContainer>{tag}</TagContainer>;
 }
