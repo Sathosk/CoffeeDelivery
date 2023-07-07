@@ -18,14 +18,21 @@ export const CoffeeCardContainer = styled.li`
 `;
 
 export const CoffeCardController = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
     span {
         ${typographyStyles.textMReg}
         color: ${props => props.theme["base-subtitle"]};
         grid-column: 1 / span 2;
+    }
+
+    div {
+        display: flex;
+        justify-content: flex-start;
+
+        gap: 0.5rem;
     }
 `;
 
@@ -68,6 +75,4 @@ export const Price = styled.div`
 
     ${typographyStyles.textMBold}
     color: ${props => props.theme["base-text"]};
-
-
 `;

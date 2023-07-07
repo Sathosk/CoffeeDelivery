@@ -13,6 +13,7 @@ export const OrderSummarySection = styled.section`
 
 export const OrderSummaryContainer = styled.div`
     ${CheckoutContainerStyle}
+    border-radius: 6px 44px;
 
     margin-top: 1rem;
 `;

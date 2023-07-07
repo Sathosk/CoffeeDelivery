@@ -14,11 +14,13 @@ export function SelectedCoffee() {
             <img src={exampleImg} alt="" />
             <CoffeCardController>
                 <span>Expresso Tradicional</span>
-                <CountButton />
-                <RemoveButton>
-                    <Trash size={16} />
-                    <span>REMOVE</span>
-                </RemoveButton>
+                <div>
+                    <CountButton />
+                    <RemoveButton>
+                        <Trash size={16} />
+                        <span>REMOVE</span>
+                    </RemoveButton>
+                </div>
             </CoffeCardController>
 
             <Price>

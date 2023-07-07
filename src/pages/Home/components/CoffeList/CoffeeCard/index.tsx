@@ -28,6 +28,16 @@ export function CoffeeCard({
         setCoffeeQuantity(number);
     }
 
+    function handleAddCoffeeInCart() {
+        const coffeeData = {
+            imgName: imgName,
+            price: price,
+            quantity: coffeeQuantity,
+        };
+
+        console.log(coffeeData);
+    }
+
     return (
         <CoffeeCardContainer>
             <CoffeeCardContent>
@@ -50,7 +60,7 @@ export function CoffeeCard({
                         quantity={coffeeQuantity}
                         changeQuantity={handleChangeQuantity}
                     />
-                    <AddCartButton>
+                    <AddCartButton onClick={() => handleAddCoffeeInCart()}>
                         <ShoppingCartSimple weight="fill" size={21} />
                     </AddCartButton>
                 </CardFooter>
