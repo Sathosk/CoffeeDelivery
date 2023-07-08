@@ -9,8 +9,6 @@ interface CountButtonProps {
 export function CountButton({ quantity, changeQuantity }: CountButtonProps) {
     function handleChangeQuantity(number: number) {
         changeQuantity(number);
-
-        console.log(quantity);
     }
 
     return (

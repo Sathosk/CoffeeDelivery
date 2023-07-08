@@ -1,5 +1,9 @@
 import { ActionType, ActionTypes } from "./actions";
 
+interface CartState {
+    cart: CoffeeType[];
+}
+
 export interface CoffeeType {
     name: string;
     price: string;
@@ -7,12 +11,11 @@ export interface CoffeeType {
     quantity: number;
 }
 
-export function cartReducer(state: CoffeeType[], action: ActionType) {
+export function cartReducer(state: CartState, action: ActionType) {
     switch (action.type) {
         case ActionTypes.ADD_NEW_COFFEE:
             return {
-                ...state,
-                cart: [...state, action.payload.newCoffee],
+                cart: [...state.cart, action.payload.newCoffee],
             }
 
         // case ActionTypes.UPDATE_CART:
@@ -29,6 +32,6 @@ export function cartReducer(state: CoffeeType[], action: ActionType) {
 
 
         default:
-            break;
+            return state;
     }
 }

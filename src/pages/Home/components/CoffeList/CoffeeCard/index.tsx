@@ -11,7 +11,9 @@ import { Tag } from "../CoffeeTag";
 import { CountButton } from "../../../../../components/CountButton";
 import { ShoppingCartSimple } from "phosphor-react";
 import { CoffeeListType } from "../../../../../data/coffee";
-import { useState } from "react";
+import { useReducer, useState } from "react";
+import { cartReducer } from "../../../../../reducers/cart/reducer";
+import { addNewCoffeeAction } from "../../../../../reducers/cart/actions";
 
 export function CoffeeCard({
     name,
@@ -21,6 +23,9 @@ export function CoffeeCard({
     imgName,
 }: CoffeeListType) {
     const [coffeeQuantity, setCoffeeQuantity] = useState(0);
+    const [cartState, dispatch] = useReducer(cartReducer, {
+        cart: [],
+    });
     const imgSrc =
         import.meta.env.BASE_URL + `src/assets/CoffeeList/Type=${imgName}.svg`;
 
@@ -28,15 +33,18 @@ export function CoffeeCard({
         setCoffeeQuantity(number);
     }
 
-    function handleAddCoffeeInCart() {
+    function createNewCoffee() {
         const coffeeData = {
+            name: name,
             imgName: imgName,
             price: price,
             quantity: coffeeQuantity,
         };
 
-        console.log(coffeeData);
+        dispatch(addNewCoffeeAction(coffeeData));
     }
+
+    console.log("render", cartState);
 
     return (
         <CoffeeCardContainer>
@@ -60,7 +68,7 @@ export function CoffeeCard({
                         quantity={coffeeQuantity}
                         changeQuantity={handleChangeQuantity}
                     />
-                    <AddCartButton onClick={() => handleAddCoffeeInCart()}>
+                    <AddCartButton onClick={() => createNewCoffee()}>
                         <ShoppingCartSimple weight="fill" size={21} />
                     </AddCartButton>
                 </CardFooter>
