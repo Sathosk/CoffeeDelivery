@@ -22,7 +22,7 @@ export function cartReducer(state: CartStateType, action: ActionType) {
             return {
                 cart: state.cart.map(coffee => {
                     if (coffee.name === action.payload.currentCoffee) {
-                        console.log('updating')
+                        console.log(`updating ${action.payload.currentCoffee} quantity in cart`);
                         return { ...coffee, quantity: coffee.quantity + action.payload.quantity };
                     } else {
                         return coffee;

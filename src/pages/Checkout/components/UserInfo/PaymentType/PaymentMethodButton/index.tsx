@@ -24,7 +24,7 @@ export function PaymentMethodButton({
 
     return (
         <>
-            <PaymentButton onClick={onClick} active={isSelected}>
+            <PaymentButton onClick={onClick} $active={isSelected}>
                 <IconComponent size={16} />
                 <span>{text.toUpperCase()}</span>
             </PaymentButton>

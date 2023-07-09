@@ -23,8 +23,6 @@ export interface PaymentButtonProps {
 export function PaymentType() {
     const [selectedPayment, setSelectedPayment] = useState("");
 
-    console.log(selectedPayment);
-
     function handlePaymentMethodClick(paymentMethod: PaymentMethod) {
         setSelectedPayment(paymentMethod);
     }

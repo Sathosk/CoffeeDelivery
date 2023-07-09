@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { typographyStyles } from "../../../../../../styles/themes/Typography";
 
 interface PaymentButtonProps {
-    active: boolean;
+    $active: boolean;
 }
 
 export const PaymentButton = styled.button<PaymentButtonProps>`
@@ -28,10 +28,10 @@ export const PaymentButton = styled.button<PaymentButtonProps>`
     }
 
     &:hover {
-        background-color: ${props => (!props.active && props.theme["base-hover"])};
+        background-color: ${props => (!props.$active && props.theme["base-hover"])};
     }
 
-    ${props => props.active && `
+    ${props => props.$active && `
         border: 1px solid ${props.theme.purple};
         background-color: ${props.theme["purple-light"]};
     `}

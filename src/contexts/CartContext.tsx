@@ -1,10 +1,6 @@
 import { ReactNode, createContext, useReducer } from "react";
 import { CoffeeType, cartReducer } from "../reducers/cart/reducer";
-import {
-    ActionType,
-    addNewCoffeeAction,
-    updateCartAction,
-} from "../reducers/cart/actions";
+import { addNewCoffeeAction, updateCartAction } from "../reducers/cart/actions";
 
 interface CartContextProviderProps {
     children: ReactNode;
@@ -22,6 +18,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     const [cartState, dispatch] = useReducer(cartReducer, {
         cart: [],
     });
+
+    console.log(cartState);
 
     const { cart } = cartState;
 

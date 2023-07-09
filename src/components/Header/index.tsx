@@ -7,23 +7,27 @@ import {
 } from "./styles";
 import logo from "../../assets/Logo.png";
 import { MapPin, ShoppingCart } from "phosphor-react";
+import { NavLink } from "react-router-dom";
 
 export function Header() {
     return (
         <HeaderContainer>
             <HeaderNav className="container">
-                <a href="/">
+                <NavLink to="/">
                     <img src={logo} alt="" />
-                </a>
+                </NavLink>
                 <Location>
                     <MapPin weight="fill" size={18} /> Porto Alegre, RS
                 </Location>
-                <Cart href="/checkout">
-                    <ShoppingCart weight="fill" size={20}></ShoppingCart>
-                    <CartCount>
-                        <span>3</span>
-                    </CartCount>
-                </Cart>
+
+                <NavLink to="/checkout">
+                    <Cart>
+                        <ShoppingCart weight="fill" size={20}></ShoppingCart>
+                        <CartCount>
+                            <span>3</span>
+                        </CartCount>
+                    </Cart>
+                </NavLink>
             </HeaderNav>
         </HeaderContainer>
     );
