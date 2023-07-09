@@ -1,6 +1,6 @@
 import { ActionType, ActionTypes } from "./actions";
 
-interface CartState {
+interface CartStateType {
     cart: CoffeeType[];
 }
 
@@ -11,9 +11,11 @@ export interface CoffeeType {
     quantity: number;
 }
 
-export function cartReducer(state: CartState, action: ActionType) {
+export function cartReducer(state: CartStateType, action: ActionType) {
     switch (action.type) {
         case ActionTypes.ADD_NEW_COFFEE:
+            // if (state.cart.find(coffee => coffee.name === action.payload.newCoffee.name))
+
             return {
                 cart: [...state.cart, action.payload.newCoffee],
             }
