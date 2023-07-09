@@ -6,7 +6,7 @@ export enum ActionTypes {
     REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 }
 
-interface AddCoffeCart {
+interface AddCoffeeCart {
     type: ActionTypes.ADD_NEW_COFFEE;
     payload: {
         newCoffee: CoffeeType;
@@ -15,6 +15,10 @@ interface AddCoffeCart {
 
 interface UpdateCart {
     type: ActionTypes.UPDATE_CART;
+    payload: {
+        currentCoffee: string;
+        quantity: number;
+    }
 }
 
 interface RemoveFromCart {
@@ -22,11 +26,11 @@ interface RemoveFromCart {
 }
 
 export type ActionType =
-    | AddCoffeCart
+    | AddCoffeeCart
     | UpdateCart
     | RemoveFromCart;
 
-export function addNewCoffeeAction(newCoffee: CoffeeType) {
+export function addNewCoffeeAction(newCoffee: CoffeeType): AddCoffeeCart {
     return {
         type: ActionTypes.ADD_NEW_COFFEE,
         payload: {
@@ -35,9 +39,14 @@ export function addNewCoffeeAction(newCoffee: CoffeeType) {
     }
 }
 
-export function updateCartAction(): UpdateCart {
+export function updateCartAction(coffeeName: string, quantity: number): UpdateCart {
     return {
         type: ActionTypes.UPDATE_CART,
+        payload: {
+            currentCoffee: coffeeName,
+            quantity: quantity
+        }
+
     }
 }
 

@@ -14,17 +14,21 @@ export interface CoffeeType {
 export function cartReducer(state: CartStateType, action: ActionType) {
     switch (action.type) {
         case ActionTypes.ADD_NEW_COFFEE:
-            // if (state.cart.find(coffee => coffee.name === action.payload.newCoffee.name))
-
             return {
                 cart: [...state.cart, action.payload.newCoffee],
             }
 
-        // case ActionTypes.UPDATE_CART:
-        //     return {
-        //         ...state,
-        //         cart: [...state, action.payload.newCoffee],
-        //     }
+        case ActionTypes.UPDATE_CART:
+            return {
+                cart: state.cart.map(coffee => {
+                    if (coffee.name === action.payload.currentCoffee) {
+                        console.log('updating')
+                        return { ...coffee, quantity: coffee.quantity + action.payload.quantity };
+                    } else {
+                        return coffee;
+                    }
+                }),
+            }
 
         // case ActionTypes.REMOVE_FROM_CART:
         //     return {

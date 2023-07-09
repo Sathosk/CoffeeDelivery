@@ -13,6 +13,7 @@ import { ShoppingCartSimple } from "phosphor-react";
 import { CoffeeListType } from "../../../../../data/coffee";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../../../contexts/CartContext";
+import { CoffeeType } from "../../../../../reducers/cart/reducer";
 
 export function CoffeeCard({
     name,
@@ -32,7 +33,21 @@ export function CoffeeCard({
         setCoffeeQuantity(number);
     }
 
-    console.log(cart);
+    function handleAddToCart() {
+        if (coffeeQuantity === 0) return;
+
+        const coffeeData: CoffeeType = {
+            name: name,
+            price: price,
+            imgName: imgName,
+            quantity: coffeeQuantity,
+        };
+
+        if (cart.find((coffee) => coffee.name === coffeeData.name))
+            return updateCoffeeQuantity(coffeeData.name, coffeeQuantity);
+
+        createNewCoffee(coffeeData);
+    }
 
     return (
         <CoffeeCardContainer>
@@ -56,7 +71,7 @@ export function CoffeeCard({
                         quantity={coffeeQuantity}
                         changeQuantity={handleChangeQuantity}
                     />
-                    <AddCartButton>
+                    <AddCartButton onClick={() => handleAddToCart()}>
                         <ShoppingCartSimple weight="fill" size={21} />
                     </AddCartButton>
                 </CardFooter>
