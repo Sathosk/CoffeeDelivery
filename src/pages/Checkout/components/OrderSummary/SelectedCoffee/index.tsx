@@ -1,21 +1,52 @@
+import { useContext, useState } from "react";
+import { CountButton } from "../../../../../components/CountButton";
+import { CartContext } from "../../../../../contexts/CartContext";
+
+import { Trash } from "phosphor-react";
 import {
     CoffeCardController,
     CoffeeCardContainer,
     Price,
     RemoveButton,
 } from "./styles";
-import exampleImg from "../../../../../assets/CoffeeList/Type=Expresso.svg";
-import { CountButton } from "../../../../../components/CountButton";
-import { Trash } from "phosphor-react";
 
-export function SelectedCoffee() {
+interface SelectedCoffeeProps {
+    name: string;
+    imgName: string;
+    price: string;
+    quantity: number;
+}
+
+export function SelectedCoffee({
+    name,
+    imgName,
+    price,
+    quantity,
+}: SelectedCoffeeProps) {
+    const { isDevelopment } = useContext(CartContext);
+    const [coffeeQuantity, setCoffeeQuantity] = useState<number>(quantity);
+
+    function handleChangeQuantity(currentQuantity: number) {
+        setCoffeeQuantity(currentQuantity);
+    }
+
     return (
         <CoffeeCardContainer>
-            <img src={exampleImg} alt="" />
+            <img
+                src={
+                    isDevelopment
+                        ? `src/assets/CoffeeList/Type=${imgName}.svg`
+                        : `../../../../../assets/CoffeeList/Type=${imgName}.svg`
+                }
+                alt=""
+            />
             <CoffeCardController>
-                <span>Expresso Tradicional</span>
+                <span>{name}</span>
                 <div>
-                    <CountButton />
+                    <CountButton
+                        quantity={coffeeQuantity}
+                        changeQuantity={handleChangeQuantity}
+                    />
                     <RemoveButton>
                         <Trash size={16} />
                         <span>REMOVE</span>
@@ -24,7 +55,7 @@ export function SelectedCoffee() {
             </CoffeCardController>
 
             <Price>
-                <span>$ 9,90</span>
+                <span>$ {price}</span>
             </Price>
         </CoffeeCardContainer>
     );

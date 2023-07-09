@@ -20,7 +20,9 @@ export function CountButton({ quantity, changeQuantity }: CountButtonProps) {
             >
                 <Minus weight="bold" size={14} />
             </AddRemoveButton>
+
             <span>{quantity}</span>
+
             <AddRemoveButton onClick={() => handleChangeQuantity(quantity + 1)}>
                 <Plus weight="bold" size={14} />
             </AddRemoveButton>

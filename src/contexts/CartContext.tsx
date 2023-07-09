@@ -7,6 +7,7 @@ interface CartContextProviderProps {
 }
 
 interface CartContextType {
+    isDevelopment: boolean;
     cart: CoffeeType[];
     createNewCoffee: (coffee: CoffeeType) => void;
     updateCoffeeQuantity: (coffeeName: string, quantity: number) => void;
@@ -21,6 +22,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     console.log(cartState);
 
+    const isDevelopment = process.env.NODE_ENV === "development";
+
     const { cart } = cartState;
 
     function createNewCoffee(coffee: CoffeeType) {
@@ -33,7 +36,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     return (
         <CartContext.Provider
-            value={{ cart, createNewCoffee, updateCoffeeQuantity }}
+            value={{
+                cart,
+                isDevelopment,
+                createNewCoffee,
+                updateCoffeeQuantity,
+            }}
         >
             {children}
         </CartContext.Provider>
