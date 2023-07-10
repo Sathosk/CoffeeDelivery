@@ -7,6 +7,13 @@ export const HeaderContainer = styled.header`
     align-items: center;
     height: 6.5rem;
     padding: 2rem 0;
+
+    background: ${props => props.theme.white};
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 20;
 `
 
 export const HeaderNav = styled.nav`
