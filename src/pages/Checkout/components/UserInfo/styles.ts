@@ -3,7 +3,6 @@ import { typographyStyles } from "../../../../styles/themes/Typography";
 
 export const UserInfoContainer = styled.section`
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
 
     h3 {

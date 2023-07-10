@@ -9,6 +9,7 @@ interface CartContextProviderProps {
 interface CartContextType {
     isDevelopment: boolean;
     cart: CoffeeType[];
+    productsInCart: number;
     createNewCoffee: (coffee: CoffeeType) => void;
     updateCoffeeQuantity: (coffeeName: string, quantity: number) => void;
 }
@@ -26,6 +27,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     const { cart } = cartState;
 
+    const productsInCart = cart.length;
+
     function createNewCoffee(coffee: CoffeeType) {
         dispatch(addNewCoffeeAction(coffee));
     }
@@ -39,6 +42,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             value={{
                 cart,
                 isDevelopment,
+                productsInCart,
                 createNewCoffee,
                 updateCoffeeQuantity,
             }}
