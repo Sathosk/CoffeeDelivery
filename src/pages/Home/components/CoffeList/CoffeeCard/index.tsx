@@ -14,6 +14,7 @@ import { CoffeeListType } from "../../../../../data/coffee";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../../../contexts/CartContext";
 import { CoffeeType } from "../../../../../reducers/cart/reducer";
+import { USDollar } from "../../../../../utils/priceFormatter";
 
 export function CoffeeCard({
     name,
@@ -41,8 +42,8 @@ export function CoffeeCard({
             price: price,
             imgName: imgName,
             quantity: coffeeQuantity,
+            totalPrice: price * coffeeQuantity,
         };
-
         createNewCoffee(coffeeData);
     }
 
@@ -61,8 +62,8 @@ export function CoffeeCard({
 
                 <CardFooter>
                     <Price>
-                        <span>R$</span>
-                        {price}
+                        <span>$</span>
+                        {USDollar.format(price)}
                     </Price>
                     <CountButton
                         quantity={coffeeQuantity}

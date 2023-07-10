@@ -63,7 +63,7 @@ export const Price = styled.div`
     span{
         position: absolute;
         bottom: 0.52rem;
-        left: -0.1rem;
+        left: 0.4rem;
         ${typographyStyles.textS}
     }
 `

@@ -6,9 +6,10 @@ interface CartStateType {
 
 export interface CoffeeType {
     name: string;
-    price: string;
+    price: number;
     imgName: string;
     quantity: number;
+    totalPrice: number;
 }
 
 export function cartReducer(state: CartStateType, action: ActionType) {
@@ -20,8 +21,9 @@ export function cartReducer(state: CartStateType, action: ActionType) {
                 return {
                     cart: state.cart.map(coffee => {
                         if (coffee.name === action.payload.newCoffee.name) {
-                            console.log(`updating ${action.payload.newCoffee.name} quantity in cart`);
-                            return { ...coffee, quantity: coffee.quantity + action.payload.newCoffee.quantity };
+                            const updatedQuantity = coffee.quantity + action.payload.newCoffee.quantity;
+
+                            return { ...coffee, quantity: updatedQuantity, totalPrice: coffee.price * updatedQuantity };
                         } else {
                             return coffee;
                         }
@@ -34,10 +36,16 @@ export function cartReducer(state: CartStateType, action: ActionType) {
             }
         }
 
-        // case ActionTypes.UPDATE_CART:
-        //     return {
-        //         cart: 
-        //     }
+        case ActionTypes.UPDATE_CART:
+            return {
+                cart: state.cart.map(coffee => {
+                    if (coffee.name === action.payload.currentCoffee) {
+                        return { ...coffee, quantity: action.payload.quantity, totalPrice: coffee.price * action.payload.quantity }
+                    } else {
+                        return coffee;
+                    }
+                })
+            }
 
         // case ActionTypes.REMOVE_FROM_CART:
         //     return {

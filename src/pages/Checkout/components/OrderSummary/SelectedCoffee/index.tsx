@@ -13,7 +13,7 @@ import {
 interface SelectedCoffeeProps {
     name: string;
     imgName: string;
-    price: string;
+    price: number;
     quantity: number;
 }
 
@@ -25,6 +25,10 @@ export function SelectedCoffee({
 }: SelectedCoffeeProps) {
     const { isDevelopment } = useContext(CartContext);
     const [coffeeQuantity, setCoffeeQuantity] = useState<number>(quantity);
+
+    const USDollar = new Intl.NumberFormat("en-US", {
+        minimumFractionDigits: 2,
+    });
 
     function handleChangeQuantity(currentQuantity: number) {
         setCoffeeQuantity(currentQuantity);
@@ -56,7 +60,7 @@ export function SelectedCoffee({
             </CoffeCardController>
 
             <Price>
-                <span>$ {price}</span>
+                <span>$ {USDollar.format(price * quantity)}</span>
             </Price>
         </CoffeeCardContainer>
     );

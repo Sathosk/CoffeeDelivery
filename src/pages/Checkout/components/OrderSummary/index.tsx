@@ -9,9 +9,13 @@ import {
     PriceSummary,
     PriceTotal,
 } from "./styles";
+import { USDollar } from "../../../../utils/priceFormatter";
 
 export function OrderSummary() {
     const { cart } = useContext(CartContext);
+
+    const totalItems = cart.reduce((prev, curr) => prev + curr.totalPrice, 0);
+    const deliveryFee = 3.5;
 
     return (
         <OrderSummarySection>
@@ -30,15 +34,17 @@ export function OrderSummary() {
                 <PriceSummary>
                     <PriceItem>
                         <span>Item Total</span>
-                        <span>R$ 29,70</span>
+                        <span>$ {USDollar.format(totalItems)}</span>
                     </PriceItem>
                     <PriceItem>
                         <span>Delivery</span>
-                        <span>R$ 3,50</span>
+                        <span>$ {USDollar.format(deliveryFee)}</span>
                     </PriceItem>
                     <PriceTotal>
                         <span>Total</span>
-                        <span>R$ 33,20</span>
+                        <span>
+                            $ {USDollar.format(totalItems + deliveryFee)}
+                        </span>
                     </PriceTotal>
                 </PriceSummary>
                 <OrderButton>FINISH ORDER</OrderButton>

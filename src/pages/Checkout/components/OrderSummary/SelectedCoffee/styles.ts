@@ -71,7 +71,9 @@ export const RemoveButton = styled.button`
 `;
 
 export const Price = styled.div`
-    margin-left: 1.875rem;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
 
     ${typographyStyles.textMBold}
     color: ${props => props.theme["base-text"]};
