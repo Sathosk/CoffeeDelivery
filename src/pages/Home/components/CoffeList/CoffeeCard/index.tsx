@@ -43,9 +43,6 @@ export function CoffeeCard({
             quantity: coffeeQuantity,
         };
 
-        if (cart.find((coffee) => coffee.name === coffeeData.name))
-            return updateCoffeeQuantity(coffeeData.name, coffeeQuantity);
-
         createNewCoffee(coffeeData);
     }
 

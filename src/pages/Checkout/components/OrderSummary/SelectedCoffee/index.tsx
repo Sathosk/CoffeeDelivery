@@ -46,6 +46,7 @@ export function SelectedCoffee({
                     <CountButton
                         quantity={coffeeQuantity}
                         changeQuantity={handleChangeQuantity}
+                        selectedCoffeName={name}
                     />
                     <RemoveButton>
                         <Trash size={16} />
