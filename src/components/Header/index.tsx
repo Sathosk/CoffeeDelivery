@@ -22,7 +22,7 @@ export function Header() {
                     <img src={logo} alt="" />
                 </NavLink>
                 <Location>
-                    <MapPin weight="fill" size={18} /> Porto Alegre, RS
+                    <MapPin weight="fill" size={18} /> São Paulo, SP
                 </Location>
 
                 <NavLink to="/checkout">
