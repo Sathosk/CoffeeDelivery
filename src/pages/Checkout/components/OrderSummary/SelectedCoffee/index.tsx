@@ -23,7 +23,7 @@ export function SelectedCoffee({
     price,
     quantity,
 }: SelectedCoffeeProps) {
-    const { isDevelopment } = useContext(CartContext);
+    const { isDevelopment, deleteCoffeeFromCart } = useContext(CartContext);
     const [coffeeQuantity, setCoffeeQuantity] = useState<number>(quantity);
 
     const USDollar = new Intl.NumberFormat("en-US", {
@@ -32,6 +32,10 @@ export function SelectedCoffee({
 
     function handleChangeQuantity(currentQuantity: number) {
         setCoffeeQuantity(currentQuantity);
+    }
+
+    function handleDeleteCoffee(coffeeName: string) {
+        deleteCoffeeFromCart(coffeeName);
     }
 
     return (
@@ -52,7 +56,7 @@ export function SelectedCoffee({
                         changeQuantity={handleChangeQuantity}
                         selectedCoffeName={name}
                     />
-                    <RemoveButton>
+                    <RemoveButton onClick={() => handleDeleteCoffee(name)}>
                         <Trash size={16} />
                         <span>REMOVE</span>
                     </RemoveButton>

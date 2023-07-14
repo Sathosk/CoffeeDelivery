@@ -18,9 +18,11 @@ export function cartReducer(state: CartStateType, action: ActionType) {
             const isCoffeeInCart = state.cart.some(coffee => coffee.name === action.payload.newCoffee.name);
 
             if (isCoffeeInCart) {
+                const payloadCoffeeName = action.payload.newCoffee.name;
+
                 return {
                     cart: state.cart.map(coffee => {
-                        if (coffee.name === action.payload.newCoffee.name) {
+                        if (coffee.name === payloadCoffeeName) {
                             const updatedQuantity = coffee.quantity + action.payload.newCoffee.quantity;
 
                             return { ...coffee, quantity: updatedQuantity, totalPrice: coffee.price * updatedQuantity };
@@ -47,12 +49,13 @@ export function cartReducer(state: CartStateType, action: ActionType) {
                 })
             }
 
-        // case ActionTypes.REMOVE_FROM_CART:
-        //     return {
-        //         ...state,
-        //         cart: [...state, action.payload.newCoffee],
-        //     }
+        case ActionTypes.REMOVE_FROM_CART: {
+            const targetCoffee = action.payload.currentCoffee;
 
+            return {
+                cart: state.cart.filter(coffee => coffee.name !== targetCoffee)
+            }
+        }
 
         default:
             return state;

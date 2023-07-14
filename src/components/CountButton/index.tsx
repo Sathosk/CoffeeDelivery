@@ -5,21 +5,25 @@ import { CartContext } from "../../contexts/CartContext";
 
 interface CountButtonProps {
     quantity: number;
-    changeQuantity: (number: number) => void;
     selectedCoffeName?: string;
+    changeQuantity: (number: number) => void;
 }
 
 export function CountButton({
     quantity,
-    changeQuantity,
     selectedCoffeName,
+    changeQuantity,
 }: CountButtonProps) {
-    const { updateCoffeeQuantity } = useContext(CartContext);
+    const { updateCoffeeQuantity, deleteCoffeeFromCart } =
+        useContext(CartContext);
 
     function handleChangeQuantity(number: number, selectedCoffeName?: string) {
         changeQuantity(number);
 
-        if (selectedCoffeName) updateCoffeeQuantity(selectedCoffeName, number);
+        if (selectedCoffeName && number < 1)
+            deleteCoffeeFromCart(selectedCoffeName);
+        else if (selectedCoffeName)
+            updateCoffeeQuantity(selectedCoffeName, number);
     }
 
     return (

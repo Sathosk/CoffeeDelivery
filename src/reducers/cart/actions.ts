@@ -23,6 +23,9 @@ interface UpdateCart {
 
 interface RemoveFromCart {
     type: ActionTypes.REMOVE_FROM_CART;
+    payload: {
+        currentCoffee: string;
+    }
 }
 
 export type ActionType =
@@ -50,8 +53,11 @@ export function updateCartAction(coffeeName: string, quantity: number): UpdateCa
     }
 }
 
-export function removeFromCartAction(): RemoveFromCart {
+export function removeFromCartAction(coffeeName: string): RemoveFromCart {
     return {
         type: ActionTypes.REMOVE_FROM_CART,
+        payload: {
+            currentCoffee: coffeeName,
+        }
     }
 }
