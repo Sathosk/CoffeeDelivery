@@ -1,23 +1,15 @@
 import { styled, keyframes } from "styled-components";
+import { typographyStyles } from "../../styles/themes/Typography";
 
-const fadeIn = keyframes`
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-`;
+export const NotificationContainer = styled.div`
+    ${typographyStyles.textXS}
+    color: ${props => props.theme["purple-dark"]};
 
-const fadeOut = keyframes`
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-`;
+    background-color: ${props => props.theme["purple-light"]};
 
-const NotificationContainer = styled.div`
-    animation: ${fadeIn} 0.3s ease-in, ${fadeOut} 0.3s ease-in 2s;
+    border: 1px solid ${props => props.theme["purple-dark"]};
+
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+
 `;

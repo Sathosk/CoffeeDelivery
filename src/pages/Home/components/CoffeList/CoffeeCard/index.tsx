@@ -24,7 +24,7 @@ export function CoffeeCard({
     imgName,
 }: CoffeeListType) {
     const [coffeeQuantity, setCoffeeQuantity] = useState(0);
-    const { createNewCoffee } = useContext(CartContext);
+    const { createNewCoffee, displayNotification } = useContext(CartContext);
 
     const imgSrc =
         import.meta.env.BASE_URL + `src/assets/CoffeeList/Type=${imgName}.svg`;
@@ -45,6 +45,7 @@ export function CoffeeCard({
         };
 
         createNewCoffee(coffeeData);
+        displayNotification();
     }
 
     return (

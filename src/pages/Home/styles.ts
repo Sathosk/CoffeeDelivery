@@ -6,3 +6,13 @@ export const HomeContainer = styled.main`
     margin-bottom: 9.8125rem;
     width: 100%;
 `;
+
+export const NotificationContainer = styled.div`
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    bottom: 40px;
+    right: 10px;
+`;
