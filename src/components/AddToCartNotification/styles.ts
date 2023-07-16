@@ -1,4 +1,4 @@
-import { styled, keyframes } from "styled-components";
+import { styled } from "styled-components";
 import { typographyStyles } from "../../styles/themes/Typography";
 
 export const NotificationContainer = styled.div`
@@ -11,5 +11,4 @@ export const NotificationContainer = styled.div`
 
     padding: 0.5rem 0.8rem;
     border-radius: 6px;
-
 `;

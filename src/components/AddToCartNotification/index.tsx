@@ -1,5 +1,10 @@
+import { ReactNode } from "react";
 import { NotificationContainer } from "./styles";
 
-export function AddToCartNotification() {
-    return <NotificationContainer>Coffee added to cart.</NotificationContainer>;
+interface AddToCartNotProps {
+    children: ReactNode;
+}
+
+export function AddToCartNotification({ children }: AddToCartNotProps) {
+    return <NotificationContainer>{children}</NotificationContainer>;
 }

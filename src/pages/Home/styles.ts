@@ -11,7 +11,7 @@ export const NotificationContainer = styled.div`
     position: fixed;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.7rem;
 
     bottom: 40px;
     right: 10px;

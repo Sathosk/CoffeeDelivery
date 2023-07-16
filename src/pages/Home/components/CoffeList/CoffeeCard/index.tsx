@@ -45,7 +45,7 @@ export function CoffeeCard({
         };
 
         createNewCoffee(coffeeData);
-        displayNotification();
+        displayNotification(name);
     }
 
     return (

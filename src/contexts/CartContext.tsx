@@ -24,7 +24,7 @@ interface CartContextType {
     createNewCoffee: (coffee: CoffeeType) => void;
     updateCoffeeQuantity: (coffeeName: string, quantity: number) => void;
     deleteCoffeeFromCart: (coffeeName: string) => void;
-    displayNotification: () => void;
+    displayNotification: (name: string) => void;
 }
 
 export const CartContext = createContext({} as CartContextType);
@@ -42,13 +42,17 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     const isDevelopment = process.env.NODE_ENV === "development";
 
+    // Removing toast after a set
     useEffect(() => {
         if (addToCartNotifications.length > 0) {
-            const timer = setTimeout(() => {
-                setAddToCartNotification((notifications) =>
-                    notifications.slice(1)
-                );
-            }, 1000);
+            const timer = setTimeout(
+                () => {
+                    setAddToCartNotification((notifications) =>
+                        notifications.slice(1)
+                    );
+                },
+                addToCartNotifications.length === 1 ? 2000 : 1000
+            );
 
             return () => clearTimeout(timer);
         }
@@ -58,8 +62,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     const productsInCart = cart.length;
 
-    function displayNotification() {
-        const newNotification = `Coffee added to cart.`;
+    function displayNotification(name: string) {
+        const newNotification = `${name} added to cart.`;
         setAddToCartNotification((notifications) => [
             ...notifications,
             newNotification,

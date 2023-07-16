@@ -15,16 +15,21 @@ export function Home() {
             <CoffeList />
             <NotificationContainer>
                 <AnimatePresence>
-                    {addToCartNotifications.map((_, index) => (
-                        <motion.div
-                            initial={{ translateX: "110%" }}
-                            animate={{ translateX: "0%" }}
-                            exit={{ translateX: "110%" }}
-                            key={index}
-                        >
-                            <AddToCartNotification></AddToCartNotification>
-                        </motion.div>
-                    ))}
+                    {addToCartNotifications.map(
+                        (notificationMessage, index) => (
+                            <motion.div
+                                initial={{ translateX: "110%" }}
+                                animate={{ translateX: "0%" }}
+                                exit={{ translateX: "110%" }}
+                                transition={{ duration: 0.5 }}
+                                key={index}
+                            >
+                                <AddToCartNotification>
+                                    {notificationMessage}
+                                </AddToCartNotification>
+                            </motion.div>
+                        )
+                    )}
                 </AnimatePresence>
             </NotificationContainer>
         </HomeContainer>
